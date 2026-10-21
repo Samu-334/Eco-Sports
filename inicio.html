@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Sports</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="inicio.css">
+</head>
+<body>
+
+    <div id="pantalla-carga" class="splash">
+        <h1 class="texto-splash">EcoSports</h1>
+    </div>
+
+    <header>
+        <div class="logo">Eco-Sports</div>
+        <button class="menu-hamburguesa" id="btn-menu">☰</button>
+        <nav id="menu-navegacion">
+            <ul>
+                <li><a href="#" class="activo">Inicio</a></li>
+                <li><a href="#quienes-somos">Quiénes Somos</a></li>
+                <li><a href="#objetivo">Objetivo</a></li>
+                <li><a href="index.html">Artículos</a></li>
+                <li><a href="contacto.html" class="btn-contacto-nav">Contactarnos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-contenido">
+                <h1>Bienvenido a Eco-Sports</h1>
+                <h2>La forma ecológica de practicar deportes</h2>
+                <a href="#quienes-somos"><button class="btn-inicio">Comenzar</button></a>
+            </div>
+        </section>
+
+        <section id="quienes-somos" class="seccion-info">
+            <div class="texto-info">
+                <h3>¿Quiénes somos?</h3>
+                <p>Somos un proyecto nuevo que busca cuidar el planeta combinando el reciclaje con el deporte. En nuestra página puedes ganar descuentos en artículos deportivos solo por reciclar y ayudarnos a contaminar menos. Creemos que hacer algo bueno por la naturaleza merece un premio.</p>
+            </div>
+            <div class="imagen-info">
+                <img src="Assets/img/reciclaje.avif" alt="Equipo EcoSports">
+            </div>
+        </section>
+
+        <section id="objetivo" class="seccion-info inverso">
+            <div class="texto-info">
+                <h3>Nuestro Objetivo</h3>
+                <p>Queremos motivarte a reciclar ofreciéndote productos deportivos reales. Nuestra meta es crear una comunidad donde cada botella o material reciclado se convierta en beneficio para tus pasiones.</p>
+            </div>
+            <div class="imagen-info">
+                <img src="placeholder.jpg" alt="Objetivo ecológico">
+            </div>
+        </section>
+
+        <section id="articulos" class="seccion-centrada">
+            <h3>Nuestros Artículos</h3>
+            <p>Conoce los productos que puedes obtener al unirte a nuestro proyecto</p>
+            <div class="grid-articulos">
+                <div class="tarjeta-articulo">Camisetas</div>
+                <div class="tarjeta-articulo">Gorras</div>
+                <div class="tarjeta-articulo">Medias</div>
+                <div class="tarjeta-articulo">Zapatos</div>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                <a href="index.html"><button class="btn-inicio">Ver más</button></a>
+            </div>
+        </section>
+    </main>
+
+    <div class="contenedor-switch">
+        <span>Modo oscuro</span>
+        <label class="switch">
+            <input type="checkbox" id="toggle-tema">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    
+    <script src="inicio.js"></script>
+</body>
+</html>
