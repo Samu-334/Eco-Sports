@@ -1,11 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>soporte</title>
+    <title>Contacto - Eco-Sports</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="soporte.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-    hola hohlolas
+    <!-- Widget de IA Eco-Sports -->
+    <div id="eco-bot-widget" class="chatbot-contenedor">
+        <div class="chat-header">
+            <span>🌱 Eco-Bot Asistente</span>
+            <button id="cerrar-chat">X</button>
+        </div>
+        <div class="chat-cuerpo" id="chat-cuerpo">
+            <div class="mensaje bot">¡Hola! Soy la IA de Eco-Sports. Pregúntame sobre cómo reciclar, nuestros productos deportivos o cómo ganar puntos.</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="input-chat" placeholder="Escribe tu pregunta...">
+            <button id="btn-enviar-chat">Enviar</button>
+        </div>
+    </div>
+    <button id="btn-abrir-chat" class="btn-flotante-chat">💬 Chat IA</button>
+
+    <header>
+        <h1 class="logo">Eco-Sports</h1>
+        <nav>
+            <a href="inicio.html">Inicio</a>
+            <a href="index.html">Artículos</a>
+            <a href="contacto.html" class="activo">Contáctanos</a>
+        </nav>
+    </header>
+
+    <section class="contenedor-contacto">
+        <div class="info-contacto">
+            <h2>Ponte en contacto</h2>
+            <p>¿Tienes dudas sobre cómo reciclar o canjear tus puntos? Escríbenos.</p>
+        </div>
+        
+        <form id="formulario-contacto" class="formulario">
+            <div class="grupo-input">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" required placeholder="Tu nombre">
+            </div>
+            <div class="grupo-input">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" required placeholder="xxxxxxxxx@cxxxxx.com">
+            </div>
+            <div class="grupo-input">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" rows="5" required placeholder="¿En qué te podemos ayudar?"></textarea>
+            </div>
+            <button type="submit" class="btn-enviar">Enviar Mensaje</button>
+        </form>
+    </section>
+
+    <!-- Scripts vitales -->
+    <script src="soporte.js"></script>
+    <script src="ia.js"></script>
 </body>
 </html>
