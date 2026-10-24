@@ -9,6 +9,22 @@
 </head>
 <body>
 
+    
+<div id="eco-bot-widget" class="chatbot-contenedor">
+    <div class="chat-header">
+        <span>🌱 Eco-Bot Asistente</span>
+        <button id="cerrar-chat">X</button>
+    </div>
+    <div class="chat-cuerpo" id="chat-cuerpo">
+        <div class="mensaje bot">¡Hola! Soy la IA de Eco-Sports. Pregúntame sobre cómo reciclar, nuestros productos deportivos o cómo ganar puntos.</div>
+    </div>
+    <div class="chat-input">
+        <input type="text" id="input-chat" placeholder="Escribe tu pregunta...">
+        <button id="btn-enviar-chat">Enviar</button>
+    </div>
+</div>
+<button id="btn-abrir-chat" class="btn-flotante-chat">Chat IA</button>
+
     <div id="pantalla-carga" class="splash">
         <h1 class="texto-splash">EcoSports</h1>
     </div>
@@ -82,5 +98,58 @@
 
     
     <script src="inicio.js"></script>
+    <script>
+    const API_KEY = "AQ.Ab8RN6I-z2xNTXclV8C-MxezMPgay6AwenXPlfPvfikt962Ezg"; 
+
+    const btnAbrir = document.getElementById('btn-abrir-chat');
+    const btnCerrar = document.getElementById('cerrar-chat');
+    const contenedorChat = document.getElementById('eco-bot-widget');
+    const chatCuerpo = document.getElementById('chat-cuerpo');
+    const inputChat = document.getElementById('input-chat');
+    const btnEnviarChat = document.getElementById('btn-enviar-chat');
+
+    btnAbrir.addEventListener('click', () => contenedorChat.style.display = 'block');
+    btnCerrar.addEventListener('click', () => contenedorChat.style.display = 'none');
+
+    async function procesarMensaje() {
+        const textoUsuario = inputChat.value.trim();
+        if (textoUsuario === "") return;
+
+        chatCuerpo.innerHTML += `<div class="mensaje usuario">${textoUsuario}</div>`;
+        inputChat.value = '';
+        chatCuerpo.scrollTop = chatCuerpo.scrollHeight;
+
+        const idTemp = 'bot-' + Date.now();
+        chatCuerpo.innerHTML += `<div class="mensaje bot" id="${idTemp}">Pensando... ⏳</div>`;
+        chatCuerpo.scrollTop = chatCuerpo.scrollHeight;
+
+        const contexto = `Eres Eco-Bot, el asistente virtual del proyecto Eco-Sports (creado para la ruta Jóvenes Creativos de la Fundación ROFE). Tu tono es amable, joven y ecológico. El proyecto consiste en que las personas reciclan plástico o cartón para ganar 'Eco-Puntos', los cuales pueden canjear por artículos deportivos. Responde de manera MUY breve y natural a esto: "${textoUsuario}"`;
+
+        try {
+            const respuesta = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    contents: [{ parts: [{ text: contexto }] }]
+                })
+            });
+
+            const datos = await respuesta.json();
+            
+            if (datos.candidates && datos.candidates.length > 0) {
+                document.getElementById(idTemp).innerText = datos.candidates[0].content.parts[0].text;
+            } else {
+                document.getElementById(idTemp).innerText = "No sé qué decir a eso 😅";
+            }
+        } catch (error) {
+            document.getElementById(idTemp).innerText = "Mi conexión falló. 🔌";
+        }
+    }
+
+    btnEnviarChat.addEventListener('click', procesarMensaje);
+    inputChat.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') procesarMensaje();
+    });
+</script>
 </body>
 </html>
