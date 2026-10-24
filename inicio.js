@@ -24,3 +24,4 @@ if(btnMenu && menuNavegacion) {
         menuNavegacion.classList.toggle('mostrar');
     });
 }
+
