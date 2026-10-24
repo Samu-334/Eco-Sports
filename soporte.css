@@ -1,0 +1,315 @@
+
+:root {
+    --oscuro: #333333;
+    --gris-fondo: #f4f7f6;
+    --blanco: #ffffff;
+    --verde-primario: #28a745;
+    --verde-secundario: #208b38;
+    --sombra-suave: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--gris-fondo);
+    color: var(--oscuro);
+}
+
+
+header {
+    background-color: var(--blanco);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--verde-primario);
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--oscuro);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover, nav a.activo {
+    color: var(--blanco);
+    background-color: var(--verde-primario);
+}
+
+
+.contenedor-contacto {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: var(--blanco);
+    border-radius: 15px;
+    box-shadow: var(--sombra-suave);
+}
+
+.info-contacto {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.info-contacto h2 {
+    color: var(--verde-primario);
+    margin-bottom: 10px;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.grupo-input label {
+    font-weight: 600;
+    color: var(--oscuro);
+}
+
+.grupo-input input,
+.grupo-input textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.grupo-input input:focus,
+.grupo-input textarea:focus {
+    outline: none;
+    border-color: var(--verde-primario);
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.2);
+}
+
+.btn-enviar {
+    background-color: var(--verde-primario);
+    color: var(--blanco);
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-enviar:hover {
+    background-color: var(--verde-secundario);
+    transform: scale(1.02);
+}
+
+
+body {
+   
+    background-image: linear-gradient(rgba(40, 167, 69, 0.85), rgba(40, 167, 69, 0.85)),n;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transition: background-image 0.5s ease, background-color 0.5s ease;
+}
+
+
+
+body.dark-mode header,
+body.dark-mode .contenedor-contacto,
+body.dark-mode .articulo {
+    background-color: #222222;
+    color: #f4f7f6;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .articulo h2,
+body.dark-mode .info-contacto h2,
+body.dark-mode nav a,
+body.dark-mode .grupo-input label {
+    color: #f5f5f5; 
+}
+
+
+body.dark-mode .grupo-input input,
+body.dark-mode .grupo-input textarea {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #555555;
+}
+
+body.dark-mode {
+    background-color: #1a1a1a;
+    background-image: none;
+    color: #f4f7f6;
+}
+
+body.dark-mode header,
+body.dark-mode .contenedor-contacto {
+    background-color: #2a2a2a;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    color: #f4f7f6;
+}
+
+body.dark-mode h1.logo,
+body.dark-mode .info-contacto h2,
+body.dark-mode nav a {
+    color: #40e0d0;
+}
+
+body.dark-mode .grupo-input label {
+    color: #f4f7f6;
+}
+
+body.dark-mode .grupo-input input,
+body.dark-mode .grupo-input textarea {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #555555;
+}
+
+.toast-notificacion {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffffff;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: bottom 0.5s ease, background-color 0.3s ease;
+    z-index: 1000;
+}
+
+.toast-notificacion.mostrar {
+    bottom: 40px;
+}
+
+body.dark-mode .toast-notificacion {
+    color: #1a1a1a;
+}
+
+.btn-flotante-chat {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+.chatbot-contenedor {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 320px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+body.dark-mode .chatbot-contenedor {
+    background: #2a2a2a;
+    color: #f4f7f6;
+}
+
+.chat-header {
+    background: #28a745;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.chat-header button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.chat-cuerpo {
+    height: 250px;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mensaje {
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 80%;
+    font-size: 14px;
+}
+
+.mensaje.bot { background: #e9ecef; align-self: flex-start; color: #333; }
+.mensaje.usuario { background: #28a745; color: white; align-self: flex-end; }
+
+body.dark-mode .mensaje.bot { background: #444; color: #fff; }
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.chat-input button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin-left: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
