@@ -10,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+
     <header>
         <h1 class="logo">Eco-Sports</h1>
         <nav>
@@ -18,7 +19,21 @@
             <a href="contacto.html">Contáctanos</a>
         </nav>
     </header>
-
+<!-- Widget de IA Eco-Sports -->
+<div id="eco-bot-widget" class="chatbot-contenedor">
+    <div class="chat-header">
+        <span>🌱 Eco-Bot Asistente</span>
+        <button id="cerrar-chat">X</button>
+    </div>
+    <div class="chat-cuerpo" id="chat-cuerpo">
+        <div class="mensaje bot">¡Hola! Soy la IA de Eco-Sports. Pregúntame sobre cómo reciclar, nuestros productos deportivos o cómo ganar puntos.</div>
+    </div>
+    <div class="chat-input">
+        <input type="text" id="input-chat" placeholder="Escribe tu pregunta...">
+        <button id="btn-enviar-chat">Enviar</button>
+    </div>
+</div>
+<button id="btn-abrir-chat" class="btn-flotante-chat">💬 Chat IA</button>
     <section class="bienvenida">  
         <h2>¡Ojea los productos que tenemos para ti!</h2>
         <p>Canjea tu ayuda por el mejor equipamiento deportivo</p>
@@ -55,9 +70,157 @@
             <p class="descripcion">Protégete del sol con esta gorra </p>
             <p class="precio">$15.000</p>
             <button class="btn-comprar">Comprar</button>
+            
         </div>
-    </section>
 
+        <div class="articulo">
+            <h2>termo de acero inoxidable</h2>
+            <img src="Assets/img/termito.jfif" alt="Gorra deportiva">
+            <p class="descripcion">Mantén tu hidratación al máximo y dile adiós a las botellas de plástico desechables. </p>
+            <p class="precio">$15.000</p>
+            <button class="btn-comprar">Comprar</button>
+            
+        </div>
+         
+        <div class="articulo">
+            <h2>Toalla de microfibra</h2>
+            <img src="Assets/img/toallita.jfif" alt="Toalla de microfibra">
+            <p class="descripcion">Compacta, de secado súper rápido y perfecta para el sudor durante cualquier entrenamiento. </p>
+            <p class="precio">$15.000</p>
+            <button class="btn-comprar">Comprar</button>
+            
+        </div>
+
+          <div class="articulo">
+            <h2>tula deportiva</h2>
+            <img src="Assets/img/tulota.png" alt="tula deportiva">
+            <p class="descripcion">Mochila de cuerdas práctica y ligera para llevar tu ropa, guantes o guayos a cualquier parte. </p>
+            <p class="precio">$15.000</p>
+            <button class="btn-comprar">Comprar</button>
+            
+        </div>
+
+         <div class="articulo">
+            <h2>balon</h2>
+            <img src="Assets/img/balon.jfif" alt="balon">
+            <p class="descripcion">Balón de fútbol de alta calidad para entrenamientos y partidos. </p>
+            <p class="precio">$15.000</p>
+            <button class="btn-comprar">Comprar</button>
+            
+        </div>
+
+        
+         <div class="articulo">
+            <h2>pantaloneta deportiva</h2>
+            <img src="Assets/img/pantaloneta.jfif" alt="pantaloneta deportiva">
+            <p class="descripcion">Pantalóneta de secado rápido y comodidad para tu entrenamiento. </p>
+            <p class="precio">$15.000</p>
+            <button class="btn-comprar">Comprar</button>
+            
+        </div>
+
+        
+         <div class="articulo">
+            <h2>vendas de boxeo</h2>
+            <img src="Assets/img/vendas.jfif" alt="vendas de boxeo">
+            <p class="descripcion">Vendas de boxeo de alta calidad para proteger tus manos durante el entrenamiento. </p>
+            <p class="precio">$15.000</p>
+            <button class="btn-comprar">Comprar</button>
+            
+        </div>
+
+         <div class="articulo">
+            <h2>canilleras de futbol</h2>
+            <img src="Assets/img/canilleras.jfif" alt="canilleras de futbol">
+            <p class="descripcion">Canilleras de futbol de alta calidad para proteger tus piernas durante el entrenamiento. </p>
+            <p class="precio">$15.000</p>
+            <button class="btn-comprar">Comprar</button>
+            
+        </div>
+
+         <div class="articulo">
+            <h2>cuerda para saltar</h2>
+            <img src="Assets/img/cuerda.jfif" alt="cuerda para saltar">
+            <p class="descripcion">Cuerda para saltar de alta calidad para entrenamientos de cardio. </p>
+            <p class="precio">$15.000</p>
+            <button class="btn-comprar">Comprar</button>
+            
+        </div>
+
+         <div class="articulo">
+            <h2>bandas elasticas</h2>
+            <img src="Assets/img/bandas.jfif" alt="bandas elasticas">
+            <p class="descripcion">Bandas elásticas de alta calidad para entrenamientos de fuerza y resistencia. </p>
+            <p class="precio">$15.000</p>
+            <button class="btn-comprar">Comprar</button>
+            
+        </div>
+
+      
+        
+
+       
+    </section>
+<div class="contenedor-switch">
+        <span>Modo oscuro</span>
+        <label class="switch">
+            <input type="checkbox" id="toggle-tema">
+            <span class="slider"></span>
+        </label>
+    </div>
     <script src="placeholder.js"></script>
+   <script>
+    const API_KEY = "AQ.Ab8RN6I-z2xNTXclV8C-MxezMPgay6AwenXPlfPvfikt962Ezg"; 
+
+    const btnAbrir = document.getElementById('btn-abrir-chat');
+    const btnCerrar = document.getElementById('cerrar-chat');
+    const contenedorChat = document.getElementById('eco-bot-widget');
+    const chatCuerpo = document.getElementById('chat-cuerpo');
+    const inputChat = document.getElementById('input-chat');
+    const btnEnviarChat = document.getElementById('btn-enviar-chat');
+
+    btnAbrir.addEventListener('click', () => contenedorChat.style.display = 'block');
+    btnCerrar.addEventListener('click', () => contenedorChat.style.display = 'none');
+
+    async function procesarMensaje() {
+        const textoUsuario = inputChat.value.trim();
+        if (textoUsuario === "") return;
+
+        chatCuerpo.innerHTML += `<div class="mensaje usuario">${textoUsuario}</div>`;
+        inputChat.value = '';
+        chatCuerpo.scrollTop = chatCuerpo.scrollHeight;
+
+        const idTemp = 'bot-' + Date.now();
+        chatCuerpo.innerHTML += `<div class="mensaje bot" id="${idTemp}">Pensando... ⏳</div>`;
+        chatCuerpo.scrollTop = chatCuerpo.scrollHeight;
+
+        const contexto = `Eres Eco-Bot, el asistente virtual del proyecto Eco-Sports (creado para la ruta Jóvenes Creativos de la Fundación ROFE). Tu tono es amable, joven y ecológico. El proyecto consiste en que las personas reciclan plástico o cartón para ganar 'Eco-Puntos', los cuales pueden canjear por artículos deportivos. Responde de manera MUY breve y natural a esto: "${textoUsuario}"`;
+
+        try {
+            const respuesta = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    contents: [{ parts: [{ text: contexto }] }]
+                })
+            });
+
+            const datos = await respuesta.json();
+            
+            if (datos.candidates && datos.candidates.length > 0) {
+                document.getElementById(idTemp).innerText = datos.candidates[0].content.parts[0].text;
+            } else {
+                document.getElementById(idTemp).innerText = "No sé qué decir a eso 😅";
+            }
+        } catch (error) {
+            document.getElementById(idTemp).innerText = "Mi conexión falló. 🔌";
+        }
+    }
+
+    btnEnviarChat.addEventListener('click', procesarMensaje);
+    inputChat.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') procesarMensaje();
+    });
+</script>
 </body>
 </html>
